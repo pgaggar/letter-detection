@@ -124,11 +124,17 @@ class Detector:
 
         y_pred = probs_ = []
         if len(patches) > 0:
+            modified_patches = []
+            kernel = np.ones((2, 1), np.uint8)
+            for patch in patches:
+                mod = cv2.erode(patch, kernel, iterations=1)
+                mod = cv2.dilate(mod, kernel, iterations=1)
+                modified_patches.append(mod)
             probs_ = self._model.predict(patches)
             y_pred = np.argmax(probs_, axis=1)
 
         # 4. Classify text and annotate image
-        print("=====Detected Text")
+        print("=====Detected Text======")
         for i, bb in enumerate(bbs):
             if 1 <= y_pred[i] <= 62 and max(probs_[i]) >= 0.3:
                 y1, y2, x1, x2 = bb
