@@ -1,1 +1,1 @@
-# letter-detection
+# Letter Detection

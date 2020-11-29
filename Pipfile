@@ -1,0 +1,22 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+jupyterlab = "*"
+
+[packages]
+scipy = "*"
+tensorflow = "*"
+numpy =  "*"
+pytesseract = "*"
+opencv-python = "*"
+matplotlib = "*"
+imutils = "*"
+pathlib = "*"
+natsort = "*"
+sklearn = "*"
+
+[requires]
+python_version = "3.7"
