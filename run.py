@@ -1,19 +1,19 @@
 from detect import *
 import utils.preprocess as preprocess
-import time
+import argparse
+
+model = "model/weights.hdf5"
+model_input_shape = (32, 32, 1)
 
 if __name__ == "__main__":
 
-    tic = time.process_time()
+    ap = argparse.ArgumentParser()
+    ap.add_argument("-i", "--image",
+                    default="images_input",
+                    help="Path to the image folder")
 
-    model = model_custom
+    args = vars(ap.parse_args())
+
+    input_dir = args['image']
     preprocessor = preprocess.preprocess_gray
-    model_input_shape = model_input_shape_custom
-    detect_images(model, preprocessor, model_input_shape)
-
-    toc = time.process_time()
-
-    time_diff = toc - tic
-
-    # print("Total prediction time:", time_diff)
-    # print("Average prediction time: ", time_diff/9)
+    detect_images(input_dir, model, preprocessor, model_input_shape)

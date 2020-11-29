@@ -115,7 +115,7 @@ class Detector:
 
         # 2. Run pre-trained classifier
         proba = self._model.predict(patches)
-        probs = np.sum(proba[:, 0:62], axis=1)
+        probs = np.sum(proba[:, 1:63], axis=1)
         # # # 4. Thresholding
         bbs, patches, probs = _get_thresholded_boxes(boxes, patches, probs, threshold)
 
@@ -128,14 +128,15 @@ class Detector:
             y_pred = np.argmax(probs_, axis=1)
 
         # 4. Classify text and annotate image
+        print("=====Detected Text")
         for i, bb in enumerate(bbs):
-            if 1 <= y_pred[i] <= 62 and max(probs_[i]) >= 0.4:
+            if 1 <= y_pred[i] <= 62 and max(probs_[i]) >= 0.3:
                 y1, y2, x1, x2 = bb
                 cv2.rectangle(image, (x1, y1), (x2, y2), (255, 0, 0), 2)
                 pred = y_pred[i]
                 msg = convert_num_to_char(pred)
                 cv2.putText(image, msg, (x1, y1), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), thickness=2)
-
+                print(msg)
         cv2.imshow("Final Output", image)
         cv2.waitKey(0)
 
