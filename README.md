@@ -20,7 +20,7 @@ as part of this repo due to size)
 # DataSet
 The dataset used for training the model is [Chars 74K dataset](http://www.ee.surrey.ac.uk/CVSSP/demos/chars74k/). Due to
 the size of the dataset, it is not added into the repository. For training, it can be downloaded and added to `train_data` directory 
-in the main `letter-detection` directory. Further train.py can be run to train the model. 
+in the main `letter-detection` directory. Further `train.py` can be run to train the model. 
 A model has already been trained and weights have been saved in the `model` directory.
 
 
