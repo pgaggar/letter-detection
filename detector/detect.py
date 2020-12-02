@@ -143,8 +143,8 @@ class Detector:
                 msg = convert_num_to_char(pred)
                 cv2.putText(image, msg, (x1, y1), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), thickness=2)
                 print(msg)
-        cv2.imshow("Final Output", image)
-        cv2.waitKey(0)
+        # cv2.imshow("Final Output", image)
+        # cv2.waitKey(0)
 
         return image
 

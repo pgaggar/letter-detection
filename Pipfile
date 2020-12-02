@@ -10,12 +10,9 @@ jupyterlab = "*"
 scipy = "*"
 tensorflow = "*"
 numpy =  "*"
-pytesseract = "*"
 opencv-python = "*"
 matplotlib = "*"
-imutils = "*"
 pathlib = "*"
-natsort = "*"
 sklearn = "*"
 
 [requires]
