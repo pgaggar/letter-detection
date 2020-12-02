@@ -24,7 +24,7 @@ in the main `letter-detection` directory. Further `train.py` can be run to train
 A model has already been trained and weights have been saved in the `model` directory.
 
 
-# Steps to run:
+# Steps to run (without docker):
 1. Clone the repository.
 2. Create a virtual environment and install dependencies using pipfile or pipfile.lock or requirements.txt
 3. Place the target image in the images_input directory and Run the file `run.py`. Alternatively, provide the path to
