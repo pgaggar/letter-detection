@@ -38,7 +38,7 @@ the image as `--image=path/to/image` if you want the code to take file from anot
 4. To run any other image, the image must be mounted on the docker image. For that, 
 run the command `docker run -v /local/path/to/image.jpg:/opt/program/images_input/image.jpg -t letter-detection:latest python run.py --image=/opt/program/images_input/A.jpg`
 5. The text will be printed on the console, and the image with bounding box and label will be stored in `images_output` directory within the container.
-6. Now obtain the container id by running `docker container ls -all`. Copy the container id.
+6. Now obtain the container id by running `docker container ls -all`. Copy the container id of the container running `letter-detection:latest` image.
 6. To move the image from within container to outside the container, run the command 
 `docker cp <container_id>:/opt/program/images_output/image.jpg /local/path/to/new_image.jpg`
 7. You can now view the image in the path which will contain bounding box surrounding the text, and the text label which was printed.
