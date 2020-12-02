@@ -31,4 +31,14 @@ A model has already been trained and weights have been saved in the `model` dire
 the image as `--image=path/to/image` if you want the code to take file from another path.
 4. The output and the image with bounding boxes is printed on console, and the image is then saved to the `images_output` directory.
 
-
+#Steps to run (using Dockerfile):
+1. Clone the repository.
+2. Go to the letter-detection directory. Type the following command to build the docker image - `docker build -t letter-detection .`
+3. To run one of the given images against the model (images in the `images_input` directory), run the command `docker run -t letter-detection:latest python run.py`.
+4. To run any other image, the image must be mounted on the docker image. For that, 
+run the command `docker run -v /local/path/to/image.jpg:/opt/program/images_input/image.jpg -t letter-detection:latest python run.py --image=/opt/program/images_input/A.jpg`
+5. The text will be printed on the console, and the image with bounding box and label will be stored in `images_output` directory within the container.
+6. Now obtain the container id by running `docker container ls -all`. Copy the container id.
+6. To move the image from within container to outside the container, run the command 
+`docker cp <container_id>:/opt/program/images_output/image.jpg /local/path/to/new_image.jpg`
+7. You can now view the image in the path which will contain bounding box surrounding the text, and the text label which was printed.

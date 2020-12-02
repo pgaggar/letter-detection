@@ -40,7 +40,8 @@ def detect_images(input_model, preprocessor, input_shape, input_file):
 
         if SAVE_OUTPUT:
             print('saving output: ', i)
-            cv2.imwrite(os.path.join(OUTPUT_DIR, img_file), output_image)
+            img_name = os.path.basename(img_file)
+            cv2.imwrite(os.path.join(OUTPUT_DIR, img_name), output_image)
 
 
 if __name__ == "__main__":
